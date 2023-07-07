@@ -1,16 +1,7 @@
 # run_app_ui
 
-A new Flutter project.
+First draft ui - 3 h
+![Screenshot_123](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/fb705b12-d666-4a58-9f54-2ddd4fda9d2e)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
