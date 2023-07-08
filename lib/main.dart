@@ -32,6 +32,74 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = [
+    HomeScreen(),
+    SearchScreen(),
+    FavoritesScreen(),
+    ProfileScreen(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xff14161C),
+      body: _pages[_selectedIndex],
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Container(
+          decoration: BoxDecoration(
+            color: const Color.fromRGBO(0, 0, 0, 0.5),
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(28.0),
+              topRight: Radius.circular(28.0),
+              bottomLeft: Radius.circular(28.0),
+              bottomRight: Radius.circular(28.0),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.005),
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(0, -1),
+              ),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildNavItem(0, Icons.home),
+              _buildNavItem(1, Icons.search),
+              _buildNavItem(2, Icons.favorite),
+              _buildNavItem(3, Icons.person),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNavItem(int index, IconData iconData) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.only(left: 30.0, top: 20.0, right: 30.0, bottom: 20.0),
+        decoration: _selectedIndex == index ? backlight : null,
+        child: Icon(
+          iconData,
+          color: _selectedIndex == index ? Colors.white : Colors.grey,
+        ),
+      ),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 15.0),
+              padding: const EdgeInsets.only(bottom: 15.0),
               child: DottedBorder(
                 borderType: BorderType.RRect,
                 radius: const Radius.circular(20),
@@ -222,7 +290,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   )),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 15.0),
+              padding: const EdgeInsets.only(top: 15.0),
               child: Container(
                   width: MediaQuery.of(context).size.width * 0.9,
                   height: MediaQuery.of(context).size.width * 0.1,
@@ -230,7 +298,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: const Color.fromRGBO(0, 0, 0, 0.2),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
@@ -270,37 +338,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 5.0, bottom: 20),
-              child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.width * 0.2,
-                  decoration: BoxDecoration(
-                    color: const Color.fromRGBO(0, 0, 0, 0.2),
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(
-                        'menu',
-                        style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'menu',
-                        style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'menu',
-                        style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'menu',
-                        style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  )),
-            ),
           ],
         ),
       ),
@@ -331,3 +368,49 @@ class ClipPathClass extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
+
+class SearchScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Search Screen'),
+    );
+  }
+}
+
+class FavoritesScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Favorites Screen'),
+    );
+  }
+}
+
+class ProfileScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Profile Screen'),
+    );
+  }
+}
+
+const BoxDecoration backlight = BoxDecoration(
+  gradient: LinearGradient(
+    colors: [
+      Colors.transparent,
+      Color.fromRGBO(66, 68, 106, 0.2),
+      Color.fromRGBO(66, 68, 106, 0.5),
+      Color.fromRGBO(66, 68, 106, 0.7),
+      Color.fromRGBO(66, 68, 106, 1.0),
+      Color.fromRGBO(66, 68, 106, 0.7),
+      Color.fromRGBO(66, 68, 106, 0.5),
+      Color.fromRGBO(66, 68, 106, 0.2),
+      Colors.transparent,
+    ],
+    stops: [0.0, 0.1, 0.2, 0.3, 0.5, 0.7, 0.8, 0.9, 1.0],
+    begin: FractionalOffset(0.0, 0.5),
+    end: FractionalOffset(1.0, 0.5),
+  ),
+);
