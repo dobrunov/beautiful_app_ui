@@ -6,7 +6,15 @@ class ShopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Profile Screen'),
+      child: Text(
+        'Shop Screen',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontStyle: FontStyle.italic,
+          // fontFamily: 'Avenir',
+        ),
+      ),
     );
   }
 }
