@@ -1,5 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +14,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -52,10 +49,10 @@ class _MyHomePageState extends State<MyHomePage> {
           decoration: BoxDecoration(
             color: const Color.fromRGBO(0, 0, 0, 0.5),
             borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(28.0),
-              topRight: Radius.circular(28.0),
-              bottomLeft: Radius.circular(28.0),
-              bottomRight: Radius.circular(28.0),
+              topLeft: Radius.circular(35.0),
+              topRight: Radius.circular(35.0),
+              bottomLeft: Radius.circular(35.0),
+              bottomRight: Radius.circular(35.0),
             ),
             boxShadow: [
               BoxShadow(
@@ -69,10 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _buildNavItem(0, Icons.home),
-              _buildNavItem(1, Icons.search),
-              _buildNavItem(2, Icons.favorite),
-              _buildNavItem(3, Icons.person),
+              _buildNavItem(0, 'assets/images/Tabbar_Main.png'),
+              _buildNavItem(1, 'assets/images/Tabbar_Inventory.png'),
+              _buildNavItem(2, 'assets/images/Tabbar_Referral.png'),
+              _buildNavItem(3, 'assets/images/Tabbar_Shop.png'),
             ],
           ),
         ),
@@ -80,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildNavItem(int index, IconData iconData) {
+  Widget _buildNavItem(int index, String imageLink) {
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -88,11 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
         });
       },
       child: Container(
-        padding: const EdgeInsets.only(left: 30.0, top: 20.0, right: 30.0, bottom: 20.0),
+        padding: const EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0, bottom: 20.0),
         decoration: _selectedIndex == index ? backlight : null,
-        child: Icon(
-          iconData,
-          color: _selectedIndex == index ? Colors.white : Colors.grey,
+        child: Image.asset(
+          imageLink,
+          width: 34,
+          height: 34,
+          color: _selectedIndex == index ? Colors.white : Color(0xff5E5E60),
         ),
       ),
     );
@@ -130,11 +129,12 @@ class HomeScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            child: const Padding(
+                            child: Padding(
                               padding: EdgeInsets.only(top: 70.0, bottom: 10),
                               child: CircleAvatar(
                                 backgroundColor: Color(0xff01B8FF),
                                 radius: 76.0,
+                                child: SvgPicture.asset('assets/images/OWLsgk.svg', semanticsLabel: 'Man'),
                               ),
                             ),
                           )))
@@ -145,16 +145,41 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.only(top: 15.0),
               child: Text(
                 'Hello, superman@gmail.com',
-                style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                  fontFamily: 'Poppins',
+                ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
-              child: Text(
-                '00.0000',
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Image.asset(
+                    'assets/images/ic_coin.png',
+                    width: 20,
+                    height: 20,
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
+                  child: Text(
+                    '00.0000',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Poppins',
+                    ),
+                  ),
+                ),
+              ],
             ),
+
             Padding(
               padding: const EdgeInsets.only(bottom: 15.0),
               child: DottedBorder(
@@ -198,7 +223,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       child: const Icon(
                         Icons.add,
-                        color: Color.fromRGBO(29, 185, 221, 1.00),
+                        color: Color.fromRGBO(29, 185, 221, 1.0),
                         size: 32,
                       ),
                     ),
@@ -275,17 +300,26 @@ class HomeScreen extends StatelessWidget {
                     color: const Color.fromRGBO(0, 0, 0, 0.2),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        '#',
-                        style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: SvgPicture.asset('assets/images/Durability.svg', semanticsLabel: 'Durability'),
                       ),
-                      Text(
-                        '000',
-                        style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: Text(
+                          '0.00 K / 50K',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Avenir',
+                          ),
+                        ),
+                      )
                     ],
                   )),
             ),
@@ -298,20 +332,30 @@ class HomeScreen extends StatelessWidget {
                     color: const Color.fromRGBO(0, 0, 0, 0.2),
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        '#',
-                        style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: SvgPicture.asset('assets/images/Power.svg', semanticsLabel: 'Power'),
                       ),
-                      Text(
-                        '000',
-                        style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: Text(
+                          '0.0 / 0.0',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Avenir',
+                          ),
+                        ),
                       ),
                     ],
                   )),
             ),
+            // START BUTTON
             Padding(
               padding: const EdgeInsets.only(top: 35.0, bottom: 15.0),
               child: SizedBox(
@@ -320,6 +364,7 @@ class HomeScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ButtonStyle(
+                    shadowColor: MaterialStateProperty.all<Color>(Colors.white),
                     backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(29, 185, 221, 1.00)),
                     foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
                     textStyle: MaterialStateProperty.all<TextStyle>(
@@ -334,7 +379,11 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  child: const Text('Start'),
+                  child: const Text(
+                    'Start',
+                    style:
+                        TextStyle(color: Colors.white, fontSize: 20, fontStyle: FontStyle.italic, fontFamily: 'Avenir'),
+                  ),
                 ),
               ),
             ),
