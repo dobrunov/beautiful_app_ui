@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -113,36 +115,77 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                      alignment: Alignment.center,
-                      child: ClipPath(
-                          clipper: ClipPathClass(),
-                          child: Container(
-                            height: MediaQuery.of(context).size.height * 0.3,
+                    child: Stack(
+                      children: [
+                        Center(
+                          child: Image.asset(
+                            'assets/images/Banner.png',
                             width: MediaQuery.of(context).size.width,
-                            decoration: const BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                                colors: [
-                                  Color(0xff8784D3),
-                                  Color(0xff5A57AC),
-                                ],
-                              ),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 70.0, bottom: 10),
-                              child: CircleAvatar(
-                                backgroundColor: Color(0xff01B8FF),
-                                radius: 76.0,
-                                child: SvgPicture.asset('assets/images/OWLsgk.svg', semanticsLabel: 'Man'),
-                              ),
-                            ),
-                          )))
+                            height: MediaQuery.of(context).size.height * 0.25,
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Stack(children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: 66.0, bottom: 15),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(80),
+                                    child: BackdropFilter(
+                                      filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+                                      child: Container(
+                                        width: 150,
+                                        height: 150,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white.withOpacity(0.05),
+                                            borderRadius: BorderRadius.circular(80),
+                                            border: Border.all(width: 1, color: Colors.white.withOpacity(0.2))),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 9.0,
+                                  top: 7.0,
+                                  child: Padding(
+                                    padding: EdgeInsets.only(top: 66.0, bottom: 2),
+                                    child: CircleAvatar(
+                                      backgroundColor: Color(0xff01B8FF),
+                                      radius: 66.0,
+                                      child: SvgPicture.asset('assets/images/OWLsgk.svg', semanticsLabel: 'Man'),
+                                    ),
+                                  ),
+                                ),
+                              ]),
+                            ],
+                          ),
+                        ),
+                        Positioned(
+                            top: 80.0,
+                            right: 20.0,
+                            child: Container(
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      spreadRadius: 3,
+                                      blurRadius: 12,
+                                      offset: Offset(0, 16),
+                                    ),
+                                  ],
+                                ),
+                                child: SvgPicture.asset('assets/images/Subtract.svg', semanticsLabel: 'Substract'))),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(top: 15.0),
+              padding: EdgeInsets.only(top: 8.0),
               child: Text(
                 'Hello, superman@gmail.com',
                 style: TextStyle(
@@ -150,7 +193,6 @@ class HomeScreen extends StatelessWidget {
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.italic,
-                  fontFamily: 'Poppins',
                 ),
               ),
             ),
@@ -166,7 +208,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
+                  padding: EdgeInsets.only(top: 8.0, bottom: 16.0),
                   child: Text(
                     '00.0000',
                     style: TextStyle(
@@ -316,7 +358,7 @@ class HomeScreen extends StatelessWidget {
                             fontSize: 20,
                             fontStyle: FontStyle.italic,
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'Avenir',
+                            // fontFamily: 'Avenir',
                           ),
                         ),
                       )
@@ -348,7 +390,7 @@ class HomeScreen extends StatelessWidget {
                             fontSize: 20,
                             fontStyle: FontStyle.italic,
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'Avenir',
+                            // fontFamily: 'Avenir',
                           ),
                         ),
                       ),
@@ -381,8 +423,12 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: const Text(
                     'Start',
-                    style:
-                        TextStyle(color: Colors.white, fontSize: 20, fontStyle: FontStyle.italic, fontFamily: 'Avenir'),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontStyle: FontStyle.italic,
+                      // fontFamily: 'Avenir',
+                    ),
                   ),
                 ),
               ),
