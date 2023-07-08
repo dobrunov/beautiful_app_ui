@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
+import 'custom_progress_indicator.dart';
 
 class ProgressWidget extends StatelessWidget {
   const ProgressWidget({
@@ -11,69 +12,15 @@ class ProgressWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 15.0),
-          child: Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              height: MediaQuery.of(context).size.width * 0.1,
-              decoration: BoxDecoration(
-                color: const Color.fromRGBO(0, 0, 0, 0.2),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: SvgPicture.asset('assets/images/Durability.svg', semanticsLabel: 'Durability'),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 16.0),
-                    child: Text(
-                      '0.00 K / 50K',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.bold,
-                        // fontFamily: 'Avenir',
-                      ),
-                    ),
-                  )
-                ],
-              )),
+        CustomProgressIndicator(
+          icon: SvgPicture.asset('assets/images/Durability.svg', semanticsLabel: 'Durability'),
+          countIndicator: '30.00 K / 50K',
+          percent: 0.3,
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 15.0),
-          child: Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              height: MediaQuery.of(context).size.width * 0.1,
-              decoration: BoxDecoration(
-                color: const Color.fromRGBO(0, 0, 0, 0.2),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: SvgPicture.asset('assets/images/Power.svg', semanticsLabel: 'Power'),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 16.0),
-                    child: Text(
-                      '0.0 / 0.0',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.bold,
-                        // fontFamily: 'Avenir',
-                      ),
-                    ),
-                  ),
-                ],
-              )),
+        CustomProgressIndicator(
+          icon: SvgPicture.asset('assets/images/Power.svg', semanticsLabel: 'Power'),
+          countIndicator: '4.0 / 20.0',
+          percent: 0.2,
         ),
       ],
     );
