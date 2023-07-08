@@ -9,3 +9,9 @@ Second draft ui - 4:17 h
 
 
 ![Screenshot_126](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/cb631fa9-227f-4ef3-ab7d-afabfd2b7707)
+
+
+95% ready ui + refactoring - 4:22 h
+
+
+![Screenshot_128](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/d838cc02-7bda-4e97-9476-d2fd9de570b3)
