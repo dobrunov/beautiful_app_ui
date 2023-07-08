@@ -5,4 +5,7 @@ First draft ui - 3 h
 ![Screenshot_123](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/fb705b12-d666-4a58-9f54-2ddd4fda9d2e)
 
 
+Second draft ui - 4:17 h
 
+
+![Screenshot_126](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/cb631fa9-227f-4ef3-ab7d-afabfd2b7707)
