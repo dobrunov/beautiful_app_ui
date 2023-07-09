@@ -18,7 +18,7 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    const MainScreen(),
+    MainScreen(),
     const InventoryScreen(),
     const ReferralScreen(),
     const ShopScreen(),
@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff14161C),
+      backgroundColor: const Color(0xff15161C),
       body: _pages[_selectedIndex],
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -71,7 +71,7 @@ class _HomeState extends State<Home> {
         });
       },
       child: Container(
-        padding: const EdgeInsets.only(left: 20.0, top: 20.0, right: 20.0, bottom: 20.0),
+        padding: const EdgeInsets.only(left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
         decoration: _selectedIndex == index ? backlight : null,
         child: Image.asset(
           imageLink,

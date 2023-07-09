@@ -24,7 +24,8 @@ class Header extends StatelessWidget {
                 child: Image.asset(
                   'assets/images/Banner.png',
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.25,
+                  height: MediaQuery.of(context).size.height * 0.27,
+                  fit: BoxFit.fill,
                 ),
               ),
               SizedBox(
@@ -32,47 +33,39 @@ class Header extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Stack(children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 66.0, bottom: 15),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(80),
-                          child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-                            child: Container(
-                              width: 150,
-                              height: 150,
-                              decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.05),
-                                  borderRadius: BorderRadius.circular(80),
-                                  border: Border.all(width: 1, color: Colors.white.withOpacity(0.2))),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 66.0, bottom: 7),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+                          child: Container(
+                            width: 158,
+                            height: 158,
+                            decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.05),
+                                borderRadius: BorderRadius.circular(80),
+                                border: Border.all(width: 1, color: Colors.white.withOpacity(0.2))),
+                            child: Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: CircleAvatar(
+                                backgroundColor: avatar.isNotEmpty ? Colors.transparent : const Color(0xff01B8FF),
+                                radius: 50.0,
+                                child: Image.asset(
+                                  avatar.isNotEmpty ? avatar : 'images/Avatar_default.png',
+                                ),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      Positioned(
-                        left: 9.0,
-                        top: 7.0,
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                            top: 66.0,
-                          ),
-                          child: CircleAvatar(
-                            backgroundColor: const Color(0xff01B8FF),
-                            radius: 66.0,
-                            child: Image.asset(
-                              avatar.isNotEmpty ? avatar : 'images/Avatar_default.png',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ]),
+                    ),
                   ],
                 ),
               ),
               Positioned(
                   top: 80.0,
-                  right: 20.0,
+                  right: 25.0,
                   child: Container(
                       decoration: BoxDecoration(
                         boxShadow: [

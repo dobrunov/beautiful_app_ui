@@ -11,9 +11,9 @@ class UserInfoWidget extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 8.0),
+          padding: const EdgeInsets.only(top: 4.0),
           child: Text(
-            'Hello, $email',
+            'Hallo, $email',
             style: const TextStyle(
               color: Colors.white,
               fontSize: 20,
@@ -22,31 +22,34 @@ class UserInfoWidget extends StatelessWidget {
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0, bottom: 16.0, right: 8.0),
-              child: Image.asset(
-                'assets/images/ic_coin.png',
-                width: 20,
-                height: 20,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
-              child: Text(
-                score.toString(),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Poppins',
+        Padding(
+          padding: const EdgeInsets.only(top: 1.0, bottom: 25.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0, bottom: 16.0, right: 8.0),
+                child: Image.asset(
+                  'assets/images/ic_coin.png',
+                  width: 20,
+                  height: 20,
                 ),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
+                child: Text(
+                  score.toString(),
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Poppins',
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

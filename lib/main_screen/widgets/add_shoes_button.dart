@@ -16,10 +16,10 @@ class AddShoesButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return DottedBorder(
       borderType: BorderType.RRect,
-      radius: const Radius.circular(20),
+      radius: const Radius.circular(16),
       color: const Color.fromRGBO(29, 185, 221, 0.32),
       strokeWidth: 2, //thickness of dash/dots
-      dashPattern: const [10, 6],
+      dashPattern: const [7, 4],
       child: Container(
         width: width,
         height: height,

@@ -27,10 +27,9 @@ class ProgressWidget extends StatelessWidget {
           percent: stepsReal / stepsTarget,
         ),
         CustomProgressIndicator(
-          icon: SvgPicture.asset('assets/images/Power.svg', semanticsLabel: 'Power'),
-          countIndicator: '$energyReal / $energyTarget',
-          percent: energyReal / energyTarget,
-        ),
+            icon: SvgPicture.asset('assets/images/Power.svg', semanticsLabel: 'Power'),
+            countIndicator: '$energyReal / $energyTarget',
+            percent: ((energyReal != 0.0) & (energyTarget != 0.0)) ? (energyReal / energyTarget) : 0.0),
       ],
     );
   }

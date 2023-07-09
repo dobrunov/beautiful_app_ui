@@ -21,7 +21,7 @@ class CustomProgressIndicator extends StatelessWidget {
       padding: const EdgeInsets.only(top: 15.0),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.95,
-        height: MediaQuery.of(context).size.height * 0.045,
+        height: MediaQuery.of(context).size.height * 0.040,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
         ),
@@ -36,7 +36,7 @@ class CustomProgressIndicator extends StatelessWidget {
               percent: percent,
               backgroundColor: const Color.fromRGBO(0, 0, 0, 0.2),
               progressColor: const Color.fromRGBO(29, 185, 221, 1.00),
-              barRadius: const Radius.circular(30),
+              barRadius: const Radius.circular(30.0),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,7 +51,7 @@ class CustomProgressIndicator extends StatelessWidget {
                     countIndicator,
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 16,
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.bold,
                       // fontFamily: 'Avenir',

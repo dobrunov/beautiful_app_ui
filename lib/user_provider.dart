@@ -1,40 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:run_app_ui/remote_service.dart';
-import 'package:run_app_ui/user_model.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class UserProvider extends ChangeNotifier {
+import 'models/user_model.dart';
+
+class UserDataProvider with ChangeNotifier {
   //
-  final _service = RemoteService();
-  late User user = User();
-
-  bool isLoading = false;
-
-  Future<void> getData() async {
-    try {
-      setLoading(true);
-
-      final user = await _service.getUser();
-      debugPrint(user?.avatar);
-      setUser(user);
-    } catch (e) {
-      handleError(e);
-    } finally {
-      setLoading(false);
-      debugPrint('user data loaded');
+  Future<User> getUserData() async {
+    final response = await http.get(Uri.parse('http://localhost:7000/'));
+    if (response.statusCode == 200) {
+      final userDataMap = json.decode(response.body);
+      return User.fromJson(userDataMap);
+    } else {
+      throw Exception('Failed to load user data');
     }
   }
-
-  void setLoading(bool loading) {
-    isLoading = loading;
-    notifyListeners();
-  }
-
-  void setUser(dynamic user) {
-    this.user = user;
-    notifyListeners();
-  }
-
-  void handleError(dynamic error) {
-    debugPrint(error.toString());
-  }
+  //
 }

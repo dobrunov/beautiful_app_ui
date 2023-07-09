@@ -14,7 +14,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => UserProvider(),
+      create: (context) => UserDataProvider(),
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Run app',

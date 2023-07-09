@@ -7,59 +7,70 @@ import 'package:run_app_ui/main_screen/widgets/progress_widget.dart';
 import 'package:run_app_ui/main_screen/widgets/start_button.dart';
 import 'package:run_app_ui/main_screen/widgets/user_info_widget.dart';
 
+import '../models/user_model.dart';
 import '../user_provider.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class MainScreen extends StatelessWidget {
+  MainScreen({super.key});
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  late UserProvider provider;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<UserProvider>(context, listen: false).getData();
-    });
-
-    provider = Provider.of<UserProvider>(context, listen: false);
-  }
+  late final fakeData;
 
   @override
   Widget build(BuildContext context) {
-    var avatar = provider.user.avatar;
-    var email = provider.user.email;
-    var score = provider.user.score;
-    var stepsTarget = provider.user.stepsTarget;
-    var stepsReal = provider.user.stepsReal;
-    var energyTarget = provider.user.energyTarget;
-    var energyReal = provider.user.energyReal;
+    final userDataProvider = Provider.of<UserDataProvider>(context);
 
     return Scaffold(
       backgroundColor: const Color(0xff14161C),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Header(avatar: avatar),
-            UserInfoWidget(
-              email: email,
-              score: score,
-            ),
-            AddShoesWidget(),
-            ProgressWidget(
-              stepsTarget: stepsTarget,
-              stepsReal: stepsReal,
-              energyTarget: energyTarget,
-              energyReal: energyReal,
-            ),
-            StartButton(),
-          ],
-        ),
+      body: FutureBuilder<User>(
+        future: userDataProvider.getUserData(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            //
+            return const Center(child: CircularProgressIndicator());
+            //
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+            //
+          } else {
+            final userData = snapshot.data!;
+            return Content(userData: userData);
+          }
+        },
+      ),
+    );
+  }
+}
+
+class Content extends StatelessWidget {
+  const Content({
+    super.key,
+    required this.userData,
+  });
+
+  final User userData;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Header(avatar: userData.avatar),
+          UserInfoWidget(
+            email: userData.email,
+            score: userData.score,
+          ),
+          AddShoesWidget(
+            listShoes: userData.listShoes,
+          ),
+          ProgressWidget(
+            stepsTarget: userData.stepsTarget,
+            stepsReal: userData.stepsReal,
+            energyTarget: userData.energyTarget,
+            energyReal: userData.energyReal,
+          ),
+          const StartButton(),
+        ],
       ),
     );
   }

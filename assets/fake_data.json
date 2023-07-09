@@ -1,0 +1,22 @@
+{
+    "id": 1,
+    "avatar": "images/evgen.png",
+    "email": "super_developer@gmail.com",
+    "score": 99.99,
+    "listShoes": [
+      {
+        "id": 1,
+        "name": "Shoes 1",
+        "image": "https://example.com/shoes1.png"
+      },
+      {
+        "id": 2,
+        "name": "Shoes 2",
+        "image": "https://example.com/shoes2.png"
+      }
+    ],
+    "stepsTarget": 50.0,
+    "stepsReal": 30.0,
+    "energyTarget": 20.0,
+    "energyReal": 4.0
+  }
