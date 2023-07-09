@@ -22,3 +22,9 @@ Create dart server, show data from server - 2:22 h
 
 ![Screenshot_129](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/cdffff23-b089-4a69-a02f-9d1d2dd9fbdb)
 
+
+Work with ui and data - 8:13 h
+
+
+![Screenshot_134](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/81d77d77-fad5-40a2-8f98-675b42c647f9)
+
