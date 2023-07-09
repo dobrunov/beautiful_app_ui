@@ -8,7 +8,7 @@ class StartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 45.0, bottom: 5.0),
+      padding: const EdgeInsets.only(top: 40.0, bottom: 5.0),
       child: GestureDetector(
         onTap: () {},
         child: Stack(children: [
@@ -23,10 +23,27 @@ class StartButton extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width * 0.9,
             height: MediaQuery.of(context).size.height * 0.065,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(60), boxShadow: const [
-              BoxShadow(color: Color.fromRGBO(77, 70, 189, 0.2)),
-              BoxShadow(color: Color.fromRGBO(29, 185, 221, 1.00), blurRadius: 6, spreadRadius: -7.0),
-            ]),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(60),
+              boxShadow: const [
+                BoxShadow(color: Color.fromRGBO(77, 70, 189, 0.4)),
+                BoxShadow(color: Color.fromRGBO(29, 185, 221, 1.00), blurRadius: 4, spreadRadius: -4.0),
+              ],
+            ),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.9,
+            height: MediaQuery.of(context).size.height * 0.065,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(60),
+                gradient: const LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Color.fromRGBO(29, 185, 221, 0.01),
+                    Color.fromRGBO(29, 185, 221, 0.5),
+                  ],
+                )),
             child: const Center(
               child: Text(
                 'Start',
@@ -34,6 +51,7 @@ class StartButton extends StatelessWidget {
                   color: Colors.white,
                   fontSize: 16,
                   fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.bold,
                   // fontFamily: 'Avenir',
                 ),
               ),
