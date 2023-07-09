@@ -15,3 +15,10 @@ Second draft ui - 4:17 h
 
 
 ![Screenshot_128](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/d838cc02-7bda-4e97-9476-d2fd9de570b3)
+
+
+Create dart server, show data from server - 2:22 h
+
+
+![Screenshot_129](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/cdffff23-b089-4a69-a02f-9d1d2dd9fbdb)
+
