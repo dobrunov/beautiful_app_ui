@@ -4,8 +4,17 @@ import 'package:flutter_svg/svg.dart';
 import 'custom_progress_indicator.dart';
 
 class ProgressWidget extends StatelessWidget {
-  const ProgressWidget({
+  final double stepsTarget;
+  final double stepsReal;
+  final double energyTarget;
+  final double energyReal;
+
+  ProgressWidget({
     super.key,
+    required this.stepsTarget,
+    required this.stepsReal,
+    required this.energyTarget,
+    required this.energyReal,
   });
 
   @override
@@ -14,13 +23,13 @@ class ProgressWidget extends StatelessWidget {
       children: [
         CustomProgressIndicator(
           icon: SvgPicture.asset('assets/images/Durability.svg', semanticsLabel: 'Durability'),
-          countIndicator: '30.00 K / 50K',
-          percent: 0.3,
+          countIndicator: '$stepsReal / $stepsTarget',
+          percent: stepsReal / stepsTarget,
         ),
         CustomProgressIndicator(
           icon: SvgPicture.asset('assets/images/Power.svg', semanticsLabel: 'Power'),
-          countIndicator: '4.0 / 20.0',
-          percent: 0.2,
+          countIndicator: '$energyReal / $energyTarget',
+          percent: energyReal / energyTarget,
         ),
       ],
     );

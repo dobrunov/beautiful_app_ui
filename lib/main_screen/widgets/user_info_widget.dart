@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 
 class UserInfoWidget extends StatelessWidget {
-  const UserInfoWidget({
-    super.key,
-  });
+  final String email;
+  final double score;
+
+  const UserInfoWidget({super.key, required this.email, required this.score});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Padding(
-          padding: EdgeInsets.only(top: 8.0),
+        Padding(
+          padding: const EdgeInsets.only(top: 8.0),
           child: Text(
-            'Hello, superman@gmail.com',
-            style: TextStyle(
+            'Hello, $email',
+            style: const TextStyle(
               color: Colors.white,
-              fontSize: 22,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               fontStyle: FontStyle.italic,
             ),
@@ -33,11 +34,11 @@ class UserInfoWidget extends StatelessWidget {
                 height: 20,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 8.0, bottom: 16.0),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
               child: Text(
-                '00.0000',
-                style: TextStyle(
+                score.toString(),
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

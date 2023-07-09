@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Header extends StatelessWidget {
+  final String avatar;
+
   const Header({
     super.key,
+    required this.avatar,
   });
 
   @override
@@ -51,11 +54,15 @@ class Header extends StatelessWidget {
                         left: 9.0,
                         top: 7.0,
                         child: Padding(
-                          padding: const EdgeInsets.only(top: 66.0, bottom: 2),
+                          padding: const EdgeInsets.only(
+                            top: 66.0,
+                          ),
                           child: CircleAvatar(
                             backgroundColor: const Color(0xff01B8FF),
                             radius: 66.0,
-                            child: SvgPicture.asset('assets/images/OWLsgk.svg', semanticsLabel: 'Man'),
+                            child: Image.asset(
+                              avatar.isNotEmpty ? avatar : 'images/Avatar_default.png',
+                            ),
                           ),
                         ),
                       ),
