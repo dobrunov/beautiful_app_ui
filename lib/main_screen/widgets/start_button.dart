@@ -9,7 +9,7 @@ class StartButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 40.0, bottom: 5.0),
-      child: GestureDetector(
+      child: InkWell(
         onTap: () {},
         child: Stack(children: [
           Container(
@@ -44,15 +44,17 @@ class StartButton extends StatelessWidget {
                     Color.fromRGBO(29, 185, 221, 0.5),
                   ],
                 )),
-            child: const Center(
-              child: Text(
-                'Start',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.bold,
-                  // fontFamily: 'Avenir',
+            child: Ink(
+              child: const Center(
+                child: Text(
+                  'Start',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
+                    // fontFamily: 'Avenir',
+                  ),
                 ),
               ),
             ),

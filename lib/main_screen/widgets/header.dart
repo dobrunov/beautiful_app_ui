@@ -63,25 +63,40 @@ class Header extends StatelessWidget {
                   ],
                 ),
               ),
-              Positioned(
-                  top: 80.0,
-                  right: 25.0,
-                  child: Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
-                            spreadRadius: 3,
-                            blurRadius: 12,
-                            offset: const Offset(0, 16),
-                          ),
-                        ],
-                      ),
-                      child: SvgPicture.asset('assets/images/Subtract.svg', semanticsLabel: 'Substract'))),
+              Positioned(top: 80.0, right: 25.0, child: SettingsWidget()),
             ],
           ),
         ],
       ),
+    );
+  }
+}
+
+class SettingsWidget extends StatelessWidget {
+  const SettingsWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        print('ontap');
+      },
+      child: Container(
+          width: 30,
+          height: 30,
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                spreadRadius: 3,
+                blurRadius: 12,
+                offset: const Offset(0, 16),
+              ),
+            ],
+          ),
+          child: SvgPicture.asset('assets/images/Subtract.svg', semanticsLabel: 'Substract')),
     );
   }
 }

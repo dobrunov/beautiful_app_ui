@@ -70,67 +70,70 @@ class AddShoesFullButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DottedBorder(
-      borderType: BorderType.RRect,
-      radius: const Radius.circular(20),
-      color: fullButton ? Colors.transparent : const Color.fromRGBO(29, 185, 221, 0.32),
-      strokeWidth: 2,
-      dashPattern: const [10, 6],
-      child: Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          color: const Color.fromRGBO(0, 0, 0, 0.4),
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.05),
-              spreadRadius: 1,
-              blurRadius: 5,
-              offset: const Offset(0, -1),
-            ),
-          ],
-        ),
-        child: fullButton
-            ? Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 1.0, top: 8, bottom: 8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          listItem[1].name,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FontStyle.italic,
+    return InkWell(
+      onTap: () {},
+      child: DottedBorder(
+        borderType: BorderType.RRect,
+        radius: const Radius.circular(20),
+        color: fullButton ? Colors.transparent : const Color.fromRGBO(29, 185, 221, 0.32),
+        strokeWidth: 2,
+        dashPattern: const [10, 6],
+        child: Container(
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+            color: const Color.fromRGBO(0, 0, 0, 0.4),
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.05),
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(0, -1),
+              ),
+            ],
+          ),
+          child: fullButton
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 1.0, top: 8, bottom: 8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            listItem[1].name,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FontStyle.italic,
+                            ),
                           ),
-                        ),
-                        Text(
-                          '# ${listItem[1].id.toString()}',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            fontStyle: FontStyle.italic,
-                          ),
-                        )
-                      ],
+                          Text(
+                            '# ${listItem[1].id.toString()}',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              fontStyle: FontStyle.italic,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  Image.asset(
-                    'images/Shoe_2.png',
-                    width: 100,
-                    height: 100,
-                  ),
-                ],
-              )
-            : const Icon(Icons.add, color: Color.fromRGBO(29, 185, 221, 1.00), size: 20),
+                    Image.asset(
+                      'images/Shoe_2.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ],
+                )
+              : const Icon(Icons.add, color: Color.fromRGBO(29, 185, 221, 1.00), size: 20),
+        ),
       ),
     );
   }
