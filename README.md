@@ -34,3 +34,7 @@ Work with ui - 3:17 h
 
 ![Screenshot_135](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/b3ca3b3e-4c53-473d-ad2d-ddca1e2ad230)
 
+
+
+https://github.com/dobrunov/beautiful_app_ui/assets/98588940/89324340-904b-4aa7-8b35-f76a0c14debb
+
