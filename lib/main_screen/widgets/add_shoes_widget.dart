@@ -80,8 +80,16 @@ class AddShoesFullButton extends StatelessWidget {
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: const Color.fromRGBO(0, 0, 0, 0.2),
+          color: const Color.fromRGBO(0, 0, 0, 0.4),
           borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.05),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, -1),
+            ),
+          ],
         ),
         child: fullButton
             ? Row(

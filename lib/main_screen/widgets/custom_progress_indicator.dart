@@ -24,6 +24,14 @@ class CustomProgressIndicator extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.040,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.05),
+              spreadRadius: 1,
+              blurRadius: 5,
+              offset: const Offset(0, -1),
+            ),
+          ],
         ),
         child: Stack(
           alignment: Alignment.topCenter,
@@ -34,7 +42,7 @@ class CustomProgressIndicator extends StatelessWidget {
               animationDuration: 1000,
               lineHeight: MediaQuery.of(context).size.height * 0.042,
               percent: percent,
-              backgroundColor: const Color.fromRGBO(0, 0, 0, 0.2),
+              backgroundColor: const Color.fromRGBO(0, 0, 0, 0.4),
               progressColor: const Color.fromRGBO(29, 185, 221, 1.00),
               barRadius: const Radius.circular(30.0),
             ),
