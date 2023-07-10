@@ -28,3 +28,9 @@ Work with ui and data - 8:13 h
 
 ![Screenshot_134](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/81d77d77-fad5-40a2-8f98-675b42c647f9)
 
+
+Work with ui - 3:17 h
+
+
+![Screenshot_135](https://github.com/dobrunov/beautiful_app_ui/assets/98588940/b3ca3b3e-4c53-473d-ad2d-ddca1e2ad230)
+
